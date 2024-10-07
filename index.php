@@ -46,11 +46,7 @@ if (is_numeric($passwordLength) && ($passwordLength > 6)) {
         <div class="container bg-white">
             <div class="row">
                 <div class="col-12 password-display d-flex align-items-center">
-                    <h5>La tua password generata è: <strong><?php if ($randomPassword) {
-                                                                echo $randomPassword;
-                                                            } else {
-                                                                echo $invalid;
-                                                            } ?></strong> </h5>
+                    <h5> <strong> <?php echo $randomPassword ? 'La tua password generata è:   ' . $randomPassword : $invalid   ?> </strong></h5>
 
                 </div>
                 <div class="col-12 input-col">
