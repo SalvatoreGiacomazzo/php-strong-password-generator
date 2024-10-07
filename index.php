@@ -1,6 +1,27 @@
 <?php
 
-$invalid = 'Nessuna password generata.'
+$invalid = 'Inserisci una lunghezza valida.';
+$randomPassword = '';
+$passwordLength = $_GET['passwordLength'];
+if (!is_numeric($passwordLength) && ($passwordLength <= 6)) {
+    $invalid = 'Nessuna password generata.';
+}
+
+function generatePassword()
+{
+    $availableChars = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM123456789!?/';
+    $randomPassword = '';
+    for ($i = 0; $i < $_GET['passwordLength']; $i++) {
+        $randomPassword .= $availableChars[rand(0, strlen($availableChars))];
+    }
+    return $randomPassword;
+}
+
+if (is_numeric($passwordLength) && ($passwordLength > 6)) {
+    echo $randomPassword = generatePassword($passwordLength);
+} else {
+    echo $invalid;
+}
 
 ?>
 <!DOCTYPE html>
@@ -25,7 +46,11 @@ $invalid = 'Nessuna password generata.'
         <div class="container bg-white">
             <div class="row">
                 <div class="col-12 password-display d-flex align-items-center">
-                    <h5>La tua password generata è: <strong><?= $invalid ?></strong> </h5>
+                    <h5>La tua password generata è: <strong><?php if ($randomPassword) {
+                                                                echo $randomPassword;
+                                                            } else {
+                                                                echo $invalid;
+                                                            } ?></strong> </h5>
 
                 </div>
                 <div class="col-12 input-col">
@@ -34,7 +59,9 @@ $invalid = 'Nessuna password generata.'
 
                             <input type="text" class="form-control w-25" name="passwordLength" id="passwordLength" placeholder="Inserisci la lunghezza della password">
                         </div>
-                        <button type="submit" class="btn btn-primary">Genera</button>
+
+                        <button type="submit" class="btn btn-secondary">Resetta</button>
+                        <button class="btn btn-dark">Genera</button>
 
 
 
