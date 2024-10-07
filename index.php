@@ -1,10 +1,15 @@
 <?php
+include __DIR__ . '/functions.php';
+
 
 $invalid = 'Inserisci una lunghezza valida.';
 $randomPassword = '';
-$passwordLength = $_GET['passwordLength'];
-if (!is_numeric($passwordLength) && ($passwordLength <= 6)) {
-    $invalid = 'Nessuna password generata.';
+
+if (isset($_GET['passwordLength'])) {
+    $passwordLength = $_GET['passwordLength'];
+    if (!is_numeric($passwordLength) && ($passwordLength <= 6)) {
+        $invalid = 'Nessuna password generata.';
+    }
 }
 
 function generatePassword()
