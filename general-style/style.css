@@ -1,0 +1,23 @@
+body {
+    background-color: #001731;
+}
+
+h1 {
+    color: #788B93;
+}
+
+.password-display {
+    height: 50px;
+    background-color: aquamarine;
+    border: 2px solid black;
+}
+
+.input-col {
+    height: 300px;
+    background-color: aqua;
+    padding-top: 80px;
+}
+
+button {
+    margin-top: 20px;
+}
