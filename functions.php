@@ -4,7 +4,7 @@ $randomPassword = '';
 
 function generatePassword()
 {
-    $availableChars = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM123456789!?/';
+    $availableChars = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890!"#$%&()*+,-./:;=?@[\]^_{|}~';
     $randomPassword = '';
     for ($i = 0; $i < $_GET['passwordLength']; $i++) {
         $randomPassword .= $availableChars[rand(0, strlen($availableChars))];

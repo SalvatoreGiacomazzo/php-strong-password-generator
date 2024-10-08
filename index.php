@@ -35,7 +35,7 @@ include __DIR__ . '/functions.php';
                     <form action="index.php" method="GET">
                         <div class="form-group">
 
-                            <input type="text" class="form-control w-25" name="passwordLength" id="passwordLength" placeholder="Inserisci la lunghezza della password">
+                            <input type="number" class="form-control w-25" min="7" max="45" name="passwordLength" id="passwordLength" placeholder="Inserisci la lunghezza della password">
                         </div>
 
                         <button type="submit" class="btn btn-secondary">Resetta</button>
